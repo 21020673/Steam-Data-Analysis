@@ -4,4 +4,5 @@ Nhóm sẽ sử dụng dữ liệu có sẵn được thu thập từ các nền
 
 # Cài đặt và chạy chương trình
 pip install -r requirements.txt
+
 streamlit run Home.py
