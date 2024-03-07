@@ -22,6 +22,18 @@ cpu = cpu[cpu['AMD CPU'] < 0.9]
 # Plot a stacked bar chart
 st.bar_chart(cpu, use_container_width=True)
 
+# Display CPU core count over the years
+st.write('The graph below shows the average CPU core count over the years.')
+cc = steamdataset.loc[(steamdataset['category'] == 'Physical CPUs')]
+cc['value'] = cc['name'].str.extract('(\d+)').astype(float)
+cc = cc.loc[cc['value'].notnull()]
+# Multiply the percentage by the RAM size to get the expected value
+cc['expected_value'] = cc['percentage'] * cc['value']
+# Sum the expected values for each year
+cc = cc.groupby('date').agg({'expected_value': 'sum'}).reset_index()
+# Plot a line chart
+st.line_chart(cc.set_index('date')['expected_value'], use_container_width=True)
+
 # Display average RAM size over the years
 st.write('The graph below shows the average RAM size over the years.')
 ram = steamdataset.loc[(steamdataset['category'] == 'System RAM')]
