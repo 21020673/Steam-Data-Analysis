@@ -27,7 +27,7 @@ video_card = video_card[video_card['Other'] < 0.5]
 st.bar_chart(video_card, use_container_width=True)
 
 # Display the average video card memory size over the years
-st.write('The graph below shows the average VRAM size over the years.')
+st.write('The graph below shows the average VRAM size over the years. The VRAM size is listed in GB.')
 video_card = steamdataset.loc[(steamdataset['category'] == 'VRAM')]
 video_card['value'] = video_card['name'].apply(extract_numerical_value)
 video_card = video_card.loc[video_card['value'].notnull()]

@@ -35,7 +35,7 @@ cc = cc.groupby('date').agg({'expected_value': 'sum'}).reset_index()
 st.line_chart(cc.set_index('date')['expected_value'], use_container_width=True)
 
 # Display average RAM size over the years
-st.write('The graph below shows the average RAM size over the years.')
+st.write('The graph below shows the average RAM size over the years. The RAM size is listed in GB.')
 ram = steamdataset.loc[(steamdataset['category'] == 'System RAM')]
 ram['value'] = ram['name'].apply(extract_numerical_value)
 ram = ram.loc[ram['value'].notnull()]
