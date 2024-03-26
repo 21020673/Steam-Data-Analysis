@@ -4,24 +4,24 @@ import pandas as pd
 import warnings
 warnings.filterwarnings('ignore')
 
-st.title('VR HEADSET DATA')
+st.title('VR Headset Data')
 
 
 def categorize_vr_headset(vr_headset):
     if 'Windows Mixed Reality' in vr_headset:
-        return 'WINDOWS MIXED REALITY'
+        return 'Windows Mixed Reality'
     elif 'HTC' in vr_headset:
         return 'HTC'
     # elif 'Oculus Rift S' in vr_headset:
     #     return 'OCULUS RIFT S'
     elif 'Meta Quest' in vr_headset:
-        return 'META QUEST'
+        return 'Meta Quest'
     elif 'Valve Index' in vr_headset:
-        return 'VALVE INDEX'
+        return 'Valve Index'
     elif 'Oculus' in vr_headset:
-        return 'OCULUS'
+        return 'Oculus'
     else:
-        return 'OTHER'
+        return 'Other'
 
 
 steamdataset = pd.read_csv('shs.csv')
@@ -31,7 +31,7 @@ st.write('The graph below shows the percentage of each headset type over the yea
 
 # Filter data for VR Headsets
 vr = steamdataset.loc[(steamdataset['category'] == 'VR Headsets') & (
-    steamdataset['date'] >= '2020-03-01') & (
+    steamdataset['date'] >= '2020-02-01') & (
     steamdataset['date'] != '2022-08-01')]
 
 # Apply categorization function to 'name' column
