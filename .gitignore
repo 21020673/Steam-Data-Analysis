@@ -1,1 +1,7 @@
-**/__pycache__
+# Ignore files too big to commit
+**/data/exports/steam_description_data.csv
+**/data/exports/steam_media_data.csv
+**/data/exports/steamspy_tag_data.csv
+**/data/download/games.csv
+**/data/download/steam_app_data.csv
+**/data/download/steamspy_data.csv
